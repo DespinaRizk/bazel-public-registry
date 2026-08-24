@@ -1,0 +1,48 @@
+name: Pull Request Pipeline
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  validations:
+    name: Validations run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Verify integrities
+        run: ./scripts/ci/verify_integrities.py
+
+  package-diff:
+    name: Package version diff
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Diff changed package versions
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: bazel run //scripts/ci:diff_package_versions
+      - name: Render diff to job summary
+        if: always()
+        run: |
+          if [ -f package_diff_report.md ]; then
+            cat package_diff_report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Save PR number
+        if: always()
+        run: echo "${{ github.event.pull_request.number }}" > pr_number.txt
+      - name: Upload diff report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-diff-report
+          path: |
+            package_diff_report.md
+            pr_number.txt
+          if-no-files-found: ignore

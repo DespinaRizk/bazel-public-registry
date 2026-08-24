@@ -1,0 +1,46 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+py_library(
+    name = "version",
+    srcs = ["version.py"],
+    imports = ["."],
+    visibility = ["//visibility:public"],
+)
+
+py_library(
+    name = "utils",
+    srcs = ["utils.py"],
+    imports = ["."],
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        "@iw_bpr_deps//requests",
+    ],
+)
+
+py_binary(
+    name = "add_module_to_ws",
+    srcs = ["add_module_to_ws.py"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":utils",
+        ":version",
+    ],
+)
+
+py_binary(
+    name = "apply_ws_module_to_registry",
+    srcs = ["apply_ws_module_to_registry.py"],
+    deps = [
+        ":utils",
+    ],
+)
+
+py_binary(
+    name = "create_workspace",
+    srcs = ["create_workspace.py"],
+    deps = [
+        ":add_module_to_ws",
+    ],
+)
