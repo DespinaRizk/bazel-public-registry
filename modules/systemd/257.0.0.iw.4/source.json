@@ -10,7 +10,7 @@
     "MODULE.bazel": "sha256-1k6eX5TFMu67fbVUTvJY6RHNhK5PyKCA63By1UiFVlc=",
     "version.h": "sha256-9dmbDXWppUe2Lj7ikqZLlViiNnqfOu7RMinZXpOd+J0=",
     "src/systemd/BUILD.bazel": "sha256-Bhgbw8QztH/CggLdFecsrcg83S6/zFkpUMXnM9uNKDM=",
-    "src/libsystemd/linux/audit.h": "sha256-72/o4D42e3KMxsJJaHQQjigy4Xmjo0M60+0mGLkgwNU=",
+    "src/libsystemd/linux/audit.h": "sha256-5p5X57CTfu8KIoKNUCYhXPKwZL5WLdSJr4kpsguW/v0=",
     "src/libsystemd/BUILD.bazel": "sha256-TUu0gLheiMm1gbpXgAD4zkXd3a4aqcC8jMsH6TH1ias=",
     "src/fundamental/BUILD.bazel": "sha256-vhjg6TFe9rmT+aKCGCTMbLJftQXLj3zhnrP7xWrJIWg=",
     "src/basic/BUILD.bazel": "sha256-VCwo6oxRt5oWLM7hx709tQOY5gIp0dfafLvd3orAfeE=",
