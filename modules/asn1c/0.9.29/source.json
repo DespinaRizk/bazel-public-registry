@@ -9,7 +9,6 @@
   "overlay": {
     "MODULE.bazel": "sha256-y0pWrslMTjq8OoqCE3TTHRUkWlIgIgnCbafJnFFqKT0=",
     "bazel/config.h.in": "sha256-RmKrUB/xtm3yG4NwhFAw1fIRg+lqwIjS0RQA7+oCH9w=",
-    "BUILD.bazel": "sha256-jXy2RZ/Qtw/6HXa1CLYl+jgT1k3shDeZ/VNjBZ2GeJw=",
-    ".bazelversion": "sha256-Hb5W+JC2LIktDlxGDWTsY8LDD/XyLhs2dsKzJ8n29Vs="
+    "BUILD.bazel": "sha256-jXy2RZ/Qtw/6HXa1CLYl+jgT1k3shDeZ/VNjBZ2GeJw="
   }
 }
